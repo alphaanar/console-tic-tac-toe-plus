@@ -28,10 +28,49 @@ The program will try to validate every possible user input and print an error me
 
 In a conventional Tic Tac Toe, the board is only 3 by 3. Since this is a quite common feature to implement, we decided to have it as well. Entering the option `D` shows the current dimensions of the board and enables you to customize the grid size in any way you want. Entering one integer `n` creates a board of size `n` by `n`, but you can set dimensions separately as well by entering two numbers `n` and `m`. Entering no values applies no changes and simply takes the player back to the menu.
 
-![Resize Grid](/res/resize-grid.png)
+![Grid Size](/res/resize-grid.png)
 
 ## Win Condition
 
-Because now it is possible to have larger grid sizes, it also makes sense to change the winning condition of the game. For instance, in a 6x6 grid, it might be more balanced if the game required 4 of their marks to be placed in a horizontal, vertical, or diagonal row, instead of 3. You cannot set the win condition higher than the minimum of height and width of the board, i.e. `3 <= WIN_CONDITION <= MIN(X, Y)`.
+Because now it is possible to have larger grid sizes, it also makes sense to change the winning condition of the game. For instance, in a 6x6 grid, it might be more balanced if the game required 4 of their marks to be placed in a horizontal, vertical, or diagonal row, instead of 3. You cannot set the win condition higher than the minimum of height and width of the board, i.e. `3 <= WIN_CONDITION <= MIN(X, Y)`. If you first set the win condition and then the grid size, the game automatically adjusts the settings.
 
 ![Win Condition](/res/win-condition.png)
+
+## Player Count
+
+What a surprise, you can also play with more than two players; the option for that is `N`. The formula for maximum number of allowable players is slightly more complicated: `2 <= PLAYER_COUNT <= MIN(10, (X * Y - 1) / (WIN_CONDITION - 1) - 1)`. But we should not worry about the deriation of this formula, the game does everything for us in order to ensure that the grid is large enough for at least one player to win.
+
+## Player Symbols
+
+In the original game, we had `X` and `O` to represent two players, but with the greater number of players, all of them must have a unique associative symbol. By default, the game chooses the following symbols to represent players from 1 to 10: [`X`, `O`, `Y`, `Z`, `A`, `B`, `C`, `D`, `E`, `F`]. However, there is another option `S` with which players can replace existing symbols in use with another symbol from `A` to `Z` (all uppercase) as they wish. If you replace a symbol with another symbol that is already used, the game swaps their order to avoid duplicates.
+
+![Player Symbols](/res/player-symbols.png)
+
+## Miscellaneous
+
+Options `M` and `C` are used in order to switch the theme and clear console. Switching the theme might sound fancy but all it does is to invert colors of the console so that white appears black and vice versa. Clearing the console can be useful when there is too many logged texts or error messages on the screen and you want to get rid of clutter.
+
+## Gameplay
+
+After entering the option `P`, the game will immediately start and a bunch of things will appear on the screen:
+1. Win condition & Move count: This is to remind players how many identical symbols in a row count as a win and how many moves overall were performed.
+2. List of auxilary actions:
+    * In cases of mishap, you can enter `Z` to undo the most recent moves until the move count reaches 0 again.
+    * Whenever a match is to end in a tie and there is no point to continue, players can choose to declare a tie earlier with the option `T`.
+    * The option `Q` is for quitting the match, either because the game settings were not right or because everyone got bored.
+3. The game board: An `n` by `m` grid labeled from all four sides with zero-based coordinates displaying all moves by the players using their symbols.
+4. Player list: This list contains all players' symbols and shows whose turn it is with a rotating indicator.
+5. Input line: Players can enter either the coordinates of a new move or one of the options the for auxilary actions.
+When a player enters the coordinates that they want to mark, the corresponding cell on the grid will be annotated with `#` at first. At this point, the game awaits a confirmation from the player that this is the cell they indeed want to choose. To confirm a move, players need to enter blank again, and only then the cell with `#` on the grid will be shown as the player's symbol. However, instead of confirming the move, the player can also re-enter another coordinates to replace `#` to another cell if they made a typo or changed their mind.
+
+![Gameplay](/res/gameplay.png)
+![Gameplay](/res/confirm-selection.png)
+![Gameplay](/res/victory.png)
+
+## Game Modes
+
+## Quit
+
+Enter option `Q` from the main menu to exit the game.
+
+![Quit](/res/quit.png)
