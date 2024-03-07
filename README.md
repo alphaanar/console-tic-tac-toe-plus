@@ -86,10 +86,21 @@ When a player enters the coordinates that they want to mark, the corresponding c
 
 ## Game Modes
 
+The game also offers 3 distinct game modes:
+
+1. Classic: Rules of the game are the same as the original game.
+2. Random Symbols: Whenever any player performs a move, a symbol is chosen at random and used to mark the cell, as if it were random player's turn, which means players only get to decide coordinates.
+3. Players Versus Bots: All the other players are conotrolled by an AI.
+
+Funnily enough, the third game mode was left unimplemented, but we still wanted to mention it.
+
+---
+![Game Modes](/res/game-modes.png)
+---
+
 ## Quit
 
-Enter option `Q` from the main menu to exit the game. :)
+After having some fun and enjoying the game, players can exit the game with the option `Q` from the main menu to. :)
 
 ---
 ![Quit](/res/quit.png)
----
