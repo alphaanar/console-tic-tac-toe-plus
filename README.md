@@ -48,7 +48,7 @@ Because now it is possible to have larger grid sizes, it also makes sense to cha
 
 ## Player Count
 
-What a surprise, you can also play with more than two players; the option for that is `N`. The formula for the maximum number of allowable players is slightly more complicated: `2 <= PLAYER_COUNT <= MIN(10, (X * Y - 1) / (WIN_CONDITION - 1) - 1)`. But we should not worry about the derivation of this formula, the game does everything for us in order to ensure that the grid is large enough for at least one player to win.
+What a surprise, you can also play with more than two players; the option for that is `N`. The formula for the maximum number of allowable players is slightly more complicated: `2 <= PLAYER_COUNT <= MIN(10, (X * Y - 1) / (WIN_CONDITION - 1) - 1)`. But we should not worry about the derivation of this formula, the game does everything for us to ensure that the grid is large enough for at least one player to win.
 
 ## Player Symbols
 
@@ -60,7 +60,7 @@ In the original game, we had `X` and `O` to represent two players, but with the 
 
 ## Miscellaneous
 
-Options `M` and `C` are used in order to switch the theme and clear the console. Switching the theme might sound fancy but all it does is to invert the colors of the console so that white appears black and vice versa. Clearing the console can be useful when there are too many logged texts or error messages on the screen and you want to get rid of clutter.
+Options `M` and `C` are used to switch the theme and clear the console, respectively. Switching the theme might sound fancy but all it does is to invert the colors of the console so that white appears black and vice versa. Clearing the console can be useful when there are too many logged texts or error messages on the screen and you want to get rid of clutter.
 
 ## Gameplay
 
@@ -88,9 +88,9 @@ When a player enters the coordinates that they want to mark, the corresponding c
 
 The game also offers 3 distinct game modes:
 
-1. Classic: Rules of the game are the same as the original game.
-2. Random Symbols: Whenever any player performs a move, a symbol is chosen at random and used to mark the cell, as if it were random player's turn, which means players only get to decide coordinates.
-3. Players Versus Bots: All the other players are conotrolled by an AI.
+1. Classic: The rules of the game are the same as the original game.
+2. Random Symbols: Whenever any player performs a move, a symbol is chosen at random and used to mark the cell, as if it were a random player's turn, which means players only get to decide coordinates.
+3. Players Versus Bots: All the other players are controlled by an AI.
 
 Funnily enough, the third game mode was left unimplemented, but we still wanted to mention it.
 
@@ -100,7 +100,7 @@ Funnily enough, the third game mode was left unimplemented, but we still wanted 
 
 ## Quit
 
-After having some fun and enjoying the game, players can exit the game with the option `Q` from the main menu to. :)
+After having some fun and enjoying the game, players can exit the game with the option `Q` from the main menu.
 
 ---
 ![Quit](/res/quit.png)
